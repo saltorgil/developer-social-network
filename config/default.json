@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://mern:mern@cluster0-3lvhm.mongodb.net/test?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://mern:mern@cluster0-3lvhm.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "mysecrecttoken"
 }
