@@ -63,8 +63,6 @@ router.post(
         },
       };
 
-      console.log(config);
-
       jwt.sign(
         payload,
         config.get('jwtSecret'),
