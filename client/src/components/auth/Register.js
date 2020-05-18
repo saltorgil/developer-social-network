@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
+import { register } from '../../actions/auth';
 
 function Register() {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ function Register() {
     event.preventDefault();
     password !== password2
       ? dispatch(setAlert('Passwords do not match', 'danger'))
-      : console.log('success');
+      : dispatch(register(name, email, password));
   }
 
   return (
@@ -44,7 +45,6 @@ function Register() {
             name='name'
             value={name}
             onChange={(event) => onChange(event)}
-            required
           />
         </div>
         <div className='form-group'>
@@ -67,7 +67,6 @@ function Register() {
             name='password'
             value={password}
             onChange={(event) => onChange(event)}
-            minLength='6'
           />
         </div>
         <div className='form-group'>
@@ -77,7 +76,6 @@ function Register() {
             name='password2'
             value={password2}
             onChange={(event) => onChange(event)}
-            minLength='6'
           />
         </div>
         <input type='submit' className='btn btn-primary' value='Register' />
