@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, Redirect } from 'react-router-dom';
+import { login } from '../../actions/auth';
 
 function Login() {
+  const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -17,10 +22,14 @@ function Login() {
     }));
   }
 
-  function onSubmit(event) {
+  async function onSubmit(event) {
     event.preventDefault();
-    console.log('success');
+    dispatch(login(email, password));
   }
+
+  // Redirect if login
+
+  if (isAuthenticated) return <Redirect to='/dashboard' />;
 
   return (
     <>
