@@ -1,7 +1,41 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../../actions/auth';
 
 function Navbar() {
+  const { loading, isAuthenticated } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
+  function onClick() {
+    dispatch(logout());
+  }
+
+  const authLinks = (
+    <ul>
+      <li>
+        <a onClick={onClick} href='#!'>
+          <i className='fas fa-sign-out-alt'></i>
+          <span className='hide-sm'>Logout</span>
+        </a>
+      </li>
+    </ul>
+  );
+
+  const guestLinks = (
+    <ul>
+      <li>
+        <Link to='/'>Developers</Link>
+      </li>
+      <li>
+        <Link to='/register'>Register</Link>
+      </li>
+      <li>
+        <Link to='/login'>Login</Link>
+      </li>
+    </ul>
+  );
+
   return (
     <nav className='navbar bg-dark'>
       <h1>
@@ -9,17 +43,7 @@ function Navbar() {
           <i className='fas fa-code'></i> DevConnector
         </Link>
       </h1>
-      <ul>
-        <li>
-          <Link to='/'>Developers</Link>
-        </li>
-        <li>
-          <Link to='/register'>Register</Link>
-        </li>
-        <li>
-          <Link to='/login'>Login</Link>
-        </li>
-      </ul>
+      {!loading && <>{isAuthenticated ? authLinks : guestLinks}</>}
     </nav>
   );
 }

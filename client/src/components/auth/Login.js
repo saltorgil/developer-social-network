@@ -37,7 +37,7 @@ function Login() {
       <p className='lead'>
         <i className='fas fa-user'></i> Sign into Your Account
       </p>
-      <form className='form' onSubmit={(event) => onSubmit(event)}>
+      <form className='form' onSubmit={onSubmit}>
         <div className='form-group'>
           <input
             type='email'
