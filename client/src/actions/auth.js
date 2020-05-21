@@ -8,6 +8,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
+  CLEAR_PROFILE,
 } from './types';
 
 // Load User
@@ -18,7 +19,6 @@ export function loadUser() {
       .get('api/auth')
       .then((response) => {
         const user = response.data;
-        console.log('user', user);
         dispatch({
           type: USER_LOADED,
           payload: user,
@@ -105,6 +105,9 @@ export function login(email, password) {
 
 // LOGOUT CLEAR PROFILE
 export const logout = () => (dispatch) => {
+  dispatch({
+    type: CLEAR_PROFILE,
+  });
   dispatch({
     type: LOGOUT,
   });
