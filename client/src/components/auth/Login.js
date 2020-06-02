@@ -22,7 +22,7 @@ function Login() {
     }));
   }
 
-  async function onSubmit(event) {
+  function onSubmit(event) {
     event.preventDefault();
     dispatch(login(email, password));
   }

@@ -8,7 +8,10 @@ import Register from './components/auth/Register';
 import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
 import PrivateRoute from './components/routing/PrivateRoute';
-
+import CreateProfile from './components/profile-forms/CreateProfile';
+import EditProfile from './components/profile-forms/EditProfile';
+import AddExperience from './components/profile-forms/AddExperience';
+import AddEducation from './components/profile-forms/AddEducation';
 import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
 
@@ -40,6 +43,18 @@ function App() {
               <Route exact path='/login' component={Login} />
               <PrivateRoute exact path='/dashboard'>
                 <Dashboard />
+              </PrivateRoute>
+              <PrivateRoute exact path='/create-profile'>
+                <CreateProfile />
+              </PrivateRoute>
+              <PrivateRoute exact path='/edit-profile'>
+                <EditProfile />
+              </PrivateRoute>
+              <PrivateRoute exact path='/add-experience'>
+                <AddExperience />
+              </PrivateRoute>
+              <PrivateRoute exact path='/add-education'>
+                <AddEducation />
               </PrivateRoute>
             </Switch>
           </section>
