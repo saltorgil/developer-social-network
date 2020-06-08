@@ -28,7 +28,7 @@ if (localStorage.token) {
 
 function App() {
   useEffect(() => {
-    store.dispatch(loadUser());
+    localStorage.token && store.dispatch(loadUser());
   }, []);
 
   return (

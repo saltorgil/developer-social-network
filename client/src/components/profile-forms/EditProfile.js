@@ -25,6 +25,7 @@ function EditProfile() {
 
   useEffect(() => {
     dispatch(getCurrentProfile());
+
     setFormData({
       company: loading || !profile.company ? '' : profile.company,
       website: loading || !profile.website ? '' : profile.website,
@@ -40,6 +41,7 @@ function EditProfile() {
       youtube: loading || !profile.social ? '' : profile.social.youtube,
       instagram: loading || !profile.social ? '' : profile.social.instagram,
     });
+    // eslint-disable-next-line
   }, [loading, getCurrentProfile]);
 
   const [displaySocialInputs, toggleSocialInputs] = useState(false);

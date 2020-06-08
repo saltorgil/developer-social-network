@@ -273,7 +273,7 @@ export function deleteAccount() {
   return async (dispatch) => {
     if (window.confirm('Are you sure? This can NOT be undone')) {
       try {
-        const response = await axios.delete('/api/profile/');
+        await axios.delete('/api/profile/');
 
         dispatch({
           type: CLEAR_PROFILE,

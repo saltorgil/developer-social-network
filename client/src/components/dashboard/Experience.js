@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import Moment from 'react-moment';
-import PropTypes from 'prop-types';
 import { deleteExperience } from '../../actions/profile';
 
 function Experience({ experience }) {
@@ -31,7 +30,7 @@ function Experience({ experience }) {
 
   return (
     <>
-      <h2 className='my-2'></h2>
+      <h2 className='my-2'>Experience Credentials</h2>
       <table className='table'>
         <thead>
           <tr>
@@ -45,10 +44,6 @@ function Experience({ experience }) {
       </table>
     </>
   );
-
-  Experience.protoTypes = {
-    experience: PropTypes.array.isRequired,
-  };
 }
 
 export default Experience;

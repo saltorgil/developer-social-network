@@ -1,8 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import Moment from 'react-moment';
-import PropTypes from 'prop-types';
-import { deleteEducation, deleteAccount } from '../../actions/profile';
+import { deleteEducation } from '../../actions/profile';
 
 function Education({ education }) {
   const dispatch = useDispatch();
@@ -10,7 +9,6 @@ function Education({ education }) {
   const educations = education.map((education) => {
     const { _id, school, degree, from, to } = education;
     const now = to === null ? 'Now' : <Moment format='YYYY/MM/DD'>{to}</Moment>;
-
     return (
       <tr key={_id}>
         <td>{school}</td>
@@ -31,7 +29,7 @@ function Education({ education }) {
 
   return (
     <>
-      <h2 className='my-2'></h2>
+      <h2 className='my-2'>Education credentials</h2>
       <table className='table'>
         <thead>
           <tr>
@@ -45,10 +43,6 @@ function Education({ education }) {
       </table>
     </>
   );
-
-  Education.protoTypes = {
-    education: PropTypes.array.isRequired,
-  };
 }
 
 export default Education;

@@ -46,8 +46,6 @@ export function register(name, email, password) {
     try {
       const res = await axios.post('api/users', body, config);
 
-      console.log('respuesta', res.data);
-
       dispatch({
         type: REGISTER_SUCCESS,
         payload: res.data,
@@ -81,7 +79,7 @@ export function login(email, password) {
     try {
       const res = await axios.post('api/auth', body, config);
 
-      console.log('respuesta', res.data);
+      //console.log('respuesta', res.data);
 
       dispatch({
         type: LOGIN_SUCCESS,
