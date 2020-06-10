@@ -56,13 +56,13 @@ export function getProfiles() {
 export function getProfileById(userId) {
   return async (dispatch) => {
     try {
-      const response = await axios.get('api/profile/user/' + userId);
+      const response = await axios.get('../api/profile/user/' + userId);
       dispatch({
-        type: GET_PROFILES,
+        type: GET_PROFILE,
         payload: response.data,
       });
     } catch (error) {
-      console.error(error.response);
+      console.error('error response profile id', error.response);
       const { statusText, status } = error.response;
       dispatch({
         type: PROFILE_ERROR,
@@ -76,7 +76,7 @@ export function getProfileById(userId) {
 export function getGithubRepos(username) {
   return async (dispatch) => {
     try {
-      const response = await axios.get('api/profile/github/' + username);
+      const response = await axios.get('../api/profile/github/' + username);
       dispatch({
         type: GET_REPOS,
         payload: response.data,

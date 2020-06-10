@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../../actions/auth';
 
 function Navbar() {
-  const { loading, isAuthenticated } = useSelector((state) => state.auth);
+  const { isAuthenticated } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   function onClick() {
@@ -52,7 +52,7 @@ function Navbar() {
           <i className='fas fa-code'></i> DevConnector
         </Link>
       </h1>
-      {!loading && <>{isAuthenticated ? authLinks : guestLinks}</>}
+      {isAuthenticated ? authLinks : guestLinks}
     </nav>
   );
 }

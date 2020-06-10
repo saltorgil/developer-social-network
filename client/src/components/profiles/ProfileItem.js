@@ -12,7 +12,7 @@ function ProfileItem({ profile }) {
 
   const allSkills = () => {
     return skills.slice(0, 4).map((skill, i) => (
-      <li key={i} skill className='text-primary'>
+      <li key={i} className='text-primary'>
         <i className='fas fa-check'>{skill}</i>
       </li>
     ));
@@ -27,7 +27,7 @@ function ProfileItem({ profile }) {
           {status} {company && <span>at {company}</span>}
         </p>
         <p className='my-1'>{location && <span>{location}</span>}</p>
-        <Link to={'/profile/' + { _id }} className='btn btn-primary'>
+        <Link to={'/profile/' + _id} className='btn btn-primary'>
           View Profile
         </Link>
       </div>

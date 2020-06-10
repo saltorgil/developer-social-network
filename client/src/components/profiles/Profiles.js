@@ -10,7 +10,7 @@ function Profiles() {
 
   useEffect(() => {
     dispatch(getProfiles());
-  }, [dispatch, getProfiles]);
+  }, [dispatch]);
 
   const profileItem = () => {
     return profiles.map((profile) => (
