@@ -11,11 +11,18 @@ function ProfileGithubItem({
     forks_count,
   },
 }) {
+  function onClick(url) {
+    window.open(url, '_blank');
+  }
+
   return (
     <div className='repo bg-white p-1 my-1'>
       <div>
         <h4>
-          <Link to={html_url} target='_blank' rel='noopener noreferrer'>
+          <Link
+            onClick={onClick(html_url)}
+            target='_blank'
+            rel='noopener noreferrer'>
             {name}
           </Link>
         </h4>

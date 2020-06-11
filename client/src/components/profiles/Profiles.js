@@ -29,9 +29,7 @@ function Profiles() {
         <React.Fragment>
           <h1 className='large text-primary'>Developers</h1>
           <p className='lead'>
-            <i className='fab fa-connectdevelop'>
-              Browse and connect with developers
-            </i>
+            <i className='fab fa-chrome'> Browse and connect with developers</i>
           </p>
           <div className='profiles'>{allProfiles}</div>
         </React.Fragment>

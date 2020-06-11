@@ -11,35 +11,54 @@ function ProfileTop({
     user: { name, avatar },
   },
 }) {
+  function onClick(social) {
+    window.open(social, '_blank');
+  }
+
   const socialContent = (
     <>
       {website && (
-        <Link to={website} target='_blank' rel='noopener noreferrer'>
+        <Link
+          onClick={onClick(website)}
+          target='_blank'
+          rel='noopener noreferrer'>
           <i className='fas fa-globe fa-2x'></i>
         </Link>
       )}
       {social.twitter && (
-        <Link to={social.twitter} target='_blank' rel='noopener noreferrer'>
+        <Link
+          onClick={onClick(social.twitter)}
+          target='_blank'
+          rel='noopener noreferrer'>
           <i className='fab fa-twitter fa-2x'></i>
         </Link>
       )}
       {social.youtube && (
-        <Link to={social.youtube} target='_blank' rel='noopener noreferrer'>
+        <Link
+          onClick={onClick(social.youtube)}
+          target='_blank'
+          rel='noopener noreferrer'>
           <i className='fab fa-youtube fa-2x'></i>
         </Link>
       )}
       {social.facebook && (
-        <Link to={social.facebook} target='_blank' rel='noopener noreferrer'>
+        <Link
+          onClick={onClick(social.facebook)}
+          target='_blank'
+          rel='noopener noreferrer'>
           <i className='fab fa-facebook fa-2x'></i>
         </Link>
       )}
       {social.instagram && (
-        <Link to={social.instagram} target='_blank' rel='noopener noreferrer'>
+        <Link
+          onClick={onClick(social.instagram)}
+          target='_blank'
+          rel='noopener noreferrer'>
           <i className='fab fa-instagram fa-2x'></i>
         </Link>
       )}
       {social.linkedin && (
-        <Link to={social.linkedin} target='_blank' rel='noopener noreferrer'>
+        <Link onClick={onClick(social.linkedin)}>
           <i className='fab fa-linkedin fa-2x'></i>
         </Link>
       )}
