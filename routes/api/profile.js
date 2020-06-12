@@ -3,7 +3,6 @@ const router = express.Router();
 const auth = require('../../middleware/auth');
 const { check, validationResult } = require('express-validator');
 const axios = require('axios');
-const config = require('config');
 
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');

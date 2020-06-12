@@ -7,6 +7,7 @@ const config = require('config');
 const { check, validationResult } = require('express-validator');
 
 const User = require('../../models/User');
+const InvitationCode = require('../../models/InvitationCode');
 
 // @route   POST api/users
 // @desc    Register user
@@ -16,6 +17,7 @@ router.post(
   [
     check('name', 'Name is required').not().isEmpty(),
     check('email', 'Please include a valid email').isEmail(),
+    check('invitationCode', 'An invitation code is required').not().isEmpty(),
     check(
       'password',
       'Please enter a password with 6 or more characters'
@@ -27,11 +29,20 @@ router.post(
     if (!errors.isEmpty())
       return res.status(400).json({ errors: errors.array() });
 
-    const { name, email, password } = req.body;
+    const { name, email, password, invitationCode } = req.body;
 
     try {
+      // Check code
+      let code = await InvitationCode.findOne({ code: invitationCode });
+      if (!code) {
+        return res.status(400).json({
+          errors: [{ msg: 'Invalid Code' }],
+        });
+      }
+
       // See if user exists
       let user = await User.findOne({ email });
+      console.log({ email });
       if (user) {
         return res.status(400).json({
           errors: [{ msg: 'User already exists' }],
