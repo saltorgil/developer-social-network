@@ -13,9 +13,10 @@ function Register() {
     email: '',
     password: '',
     password2: '',
+    invitationCode: '',
   });
 
-  const { name, email, password, password2 } = formData;
+  const { name, email, password, password2, invitationCode } = formData;
 
   function onChange(event) {
     const { name, value } = event.target;
@@ -27,9 +28,9 @@ function Register() {
 
   async function onSubmit(event) {
     event.preventDefault();
-    password !== password2
+    password !== password2 && invitationCode
       ? dispatch(setAlert('Passwords do not match', 'danger'))
-      : dispatch(register(name, email, password));
+      : dispatch(register(name, email, password, invitationCode));
   }
 
   if (isAuthenticated) return <Redirect to='/dashboard' />;
@@ -40,14 +41,14 @@ function Register() {
       <p className='lead'>
         <i className='fas fa-user'></i> Create Your Account
       </p>
-      <form className='form' onSubmit={(event) => onSubmit(event)}>
+      <form className='form' onSubmit={onSubmit}>
         <div className='form-group'>
           <input
             type='text'
             placeholder='Name'
             name='name'
             value={name}
-            onChange={(event) => onChange(event)}
+            onChange={onChange}
           />
         </div>
         <div className='form-group'>
@@ -56,7 +57,7 @@ function Register() {
             placeholder='Email Address'
             name='email'
             value={email}
-            onChange={(event) => onChange(event)}
+            onChange={onChange}
           />
           <small className='form-text'>
             This site uses Gravatar so if you want a profile image, use a
@@ -69,7 +70,7 @@ function Register() {
             placeholder='Password'
             name='password'
             value={password}
-            onChange={(event) => onChange(event)}
+            onChange={onChange}
           />
         </div>
         <div className='form-group'>
@@ -78,7 +79,16 @@ function Register() {
             placeholder='Confirm Password'
             name='password2'
             value={password2}
-            onChange={(event) => onChange(event)}
+            onChange={onChange}
+          />
+        </div>
+        <div className='form-group'>
+          <input
+            type='password'
+            placeholder='Invitation Code'
+            name='invitationCode'
+            value={invitationCode}
+            onChange={onChange}
           />
         </div>
         <input type='submit' className='btn btn-primary' value='Register' />
