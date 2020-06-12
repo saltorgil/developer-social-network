@@ -11,55 +11,45 @@ function ProfileTop({
     user: { name, avatar },
   },
 }) {
-  function onClick(social) {
-    window.open(social, '_blank');
+  const { twitter, facebook, instagram, youtube, linkedin } = social;
+
+  function onClick(event) {
+    console.log(event.target);
+    window.open(event.target.dataset.social, '_blank');
   }
 
   const socialContent = (
     <>
       {website && (
-        <Link
-          onClick={onClick(website)}
-          target='_blank'
-          rel='noopener noreferrer'>
-          <i className='fas fa-globe fa-2x'></i>
+        <Link onClick={onClick}>
+          <i className='fas fa-globe fa-2x' data-social={website}></i>
         </Link>
       )}
-      {social.twitter && (
-        <Link
-          onClick={onClick(social.twitter)}
-          target='_blank'
-          rel='noopener noreferrer'>
-          <i className='fab fa-twitter fa-2x'></i>
+      {twitter && (
+        <Link onClick={onClick}>
+          <i className='fab fa-twitter fa-2x' data-social={twitter}></i>
         </Link>
       )}
-      {social.youtube && (
-        <Link
-          onClick={onClick(social.youtube)}
-          target='_blank'
-          rel='noopener noreferrer'>
-          <i className='fab fa-youtube fa-2x'></i>
+      {youtube && (
+        <Link onClick={onClick}>
+          <i className='fab fa-youtube fa-2x' data-social={youtube}></i>
         </Link>
       )}
-      {social.facebook && (
-        <Link
-          onClick={onClick(social.facebook)}
-          target='_blank'
-          rel='noopener noreferrer'>
-          <i className='fab fa-facebook fa-2x'></i>
+      {facebook && (
+        <Link onClick={onClick}>
+          <i className='fab fa-facebook fa-2x' data-social={facebook}></i>
         </Link>
       )}
-      {social.instagram && (
-        <Link
-          onClick={onClick(social.instagram)}
-          target='_blank'
-          rel='noopener noreferrer'>
-          <i className='fab fa-instagram fa-2x'></i>
+      {instagram && (
+        <Link onClick={onClick}>
+          <i className='fab fa-instagram fa-2x' data-social={instagram}>
+            {' '}
+          </i>
         </Link>
       )}
-      {social.linkedin && (
-        <Link onClick={onClick(social.linkedin)}>
-          <i className='fab fa-linkedin fa-2x'></i>
+      {linkedin && (
+        <Link onClick={onClick}>
+          <i className='fab fa-linkedin fa-2x' data-social={linkedin}></i>
         </Link>
       )}
     </>
