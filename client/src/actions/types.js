@@ -16,3 +16,5 @@ export const DELETE_EDUCATION = 'DELETE_EDUCATION';
 export const PROFILE_ERROR = 'PROFILE_ERROR';
 export const ACCOUNT_DELETED = 'DELETE_ACCOUNT';
 export const CLEAR_PROFILE = 'CLEAR_PROFILE';
+export const GET_POSTS = 'GET_POSTS';
+export const POST_ERROR = 'POST_ERROR';
