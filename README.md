@@ -17,7 +17,7 @@ https://saltorgil-dev-social-network.herokuapp.com/
 
 # To-Do List
 - Add invitation codes &#10003;
-- Add Developers Posts, comments and likes
+- Add Developers Posts, comments and likes &#10003;
 - Create a new favicon
 - Update styles with my personal touch
 
