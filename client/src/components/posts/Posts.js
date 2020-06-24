@@ -8,6 +8,7 @@ import PostForm from './PostForm.js';
 function Posts() {
   const dispatch = useDispatch();
   const { posts, loading } = useSelector((state) => state.post);
+  const { user } = useSelector((state) => state.auth);
 
   useEffect(() => {
     dispatch(getPosts());
@@ -21,10 +22,9 @@ function Posts() {
       <p className='lead'>
         <i className='fas fa-user'></i>Welcome to the community
       </p>
-      <PostForm />
-      {posts.map((post) => (
-        <PostItem key={post._id} post={post} />
-      ))}
+      {user !== null && <PostForm />}
+      {posts !== null &&
+        posts.map((post) => <PostItem key={post._id} post={post} />)}
     </React.Fragment>
   );
 }

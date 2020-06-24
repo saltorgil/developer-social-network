@@ -8,7 +8,7 @@ function PrivateRoute({ children, ...rest }) {
     <Route
       {...rest}
       render={({ location }) =>
-        !isAuthenticated && !loading ? (
+        isAuthenticated === null || (!isAuthenticated && !loading) ? (
           <Redirect to={{ pathname: '/login', state: { from: location } }} />
         ) : (
           children
